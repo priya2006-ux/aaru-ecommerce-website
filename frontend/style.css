@@ -1,0 +1,276 @@
+/* --- Global Styles --- */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+body { background-color: #eaeded; }
+
+/* --- Header Section --- */
+header { 
+    background-color: #131921; 
+    color: white; 
+    display: flex; 
+    align-items: center; 
+    padding: 10px 20px; 
+    height: 60px; 
+}
+
+.logo { font-size: 25px; font-weight: bold; cursor: pointer; }
+.logo span { color: #f08804; }
+
+.nav-fill { flex-grow: 1; margin: 0 20px; }
+
+.search-container { display: flex; height: 40px; }
+.search-container input { 
+    flex-grow: 1; 
+    border: none; 
+    padding: 10px; 
+    border-radius: 4px 0 0 4px; 
+    outline: none; 
+}
+
+#search-btn { 
+    background-color: #febd69; 
+    border: none; 
+    padding: 0 15px; 
+    border-radius: 0 4px 4px 0; 
+    cursor: pointer; 
+    font-size: 18px; 
+}
+
+.nav-right { display: flex; gap: 20px; }
+.nav-item { cursor: pointer; }
+.line-1 { font-size: 12px; display: block; }
+.line-2 { font-size: 14px; font-weight: bold; }
+.cart-count { color: #f08804; font-weight: bold; }
+
+/* --- Sub Navigation --- */
+.sub-nav { background-color: #232f3e; color: white; padding: 8px 20px; }
+.sub-nav ul { display: flex; list-style: none; gap: 20px; }
+.nav-link { font-size: 14px; cursor: pointer; padding: 5px; border: 1px solid transparent; }
+.nav-link:hover { border: 1px solid white; border-radius: 2px; }
+
+/* --- Slider / Hero Section --- */
+.hero-section { position: relative; width: 100%; height: 350px; overflow: hidden; }
+.slides { display: flex; width: 400%; height: 100%; animation: slide 15s infinite; }
+.slides img { width: 100%; height: 100%; object-fit: cover; }
+
+@keyframes slide {
+    0%, 30% { transform: translateX(0); }
+    33%, 63% { transform: translateX(-33.33%); }
+    66%, 96% { transform: translateX(-66.66%); }
+    100% { transform: translateX(0); }
+}
+
+.hero-message { 
+    position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+    background: white; width: 95%; padding: 10px; text-align: center; font-size: 13px; z-index: 5;
+}
+
+/* --- Customer Service Section --- */
+.cs-container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+.cs-container h1 { margin-bottom: 25px; font-weight: 500; font-size: 28px; color: #111; }
+
+.cs-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 20px; 
+}
+
+.cs-card { 
+    background: white; border: 1px solid #ddd; border-radius: 8px; padding: 20px; 
+    display: flex; align-items: center; gap: 20px; cursor: pointer; 
+    transition: background-color 0.2s, box-shadow 0.2s; 
+}
+
+.cs-card:hover { background-color: #f7f7f7; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+
+.cs-icon-wrap { width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.cs-card img { max-width: 100%; max-height: 100%; object-fit: contain; }
+
+.cs-info h3 { font-size: 18px; margin-bottom: 4px; color: #111; }
+.cs-info p { font-size: 14px; color: #555; line-height: 1.4; }
+
+/* --- Product Grid Section --- */
+.container { max-width: 1400px; margin: 20px auto; padding: 0 20px; }
+
+.product-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    gap: 20px; 
+    padding-bottom: 20px; 
+}
+
+.product-card { 
+    background: white; 
+    padding: 15px; 
+    border-radius: 4px; 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1); 
+    text-align: center; 
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-card:hover { 
+    transform: translateY(-5px); 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+}
+
+.img-wrap { height: 180px; display: flex; align-items: center; justify-content: center; }
+.img-wrap img { max-width: 100%; height: 180px; object-fit: contain; }
+
+.price { 
+    font-weight: bold; 
+    color: #B12704; 
+    font-size: 1.2rem; 
+    margin: 10px 0; 
+}
+
+/* --- Login Page Specifics --- */
+.login-page {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    min-height: 100vh;
+}
+
+.login-container {
+    width: 350px;
+    text-align: center;
+}
+
+.login-box {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px 26px;
+    text-align: left;
+    margin-top: 20px;
+    background: white;
+}
+
+.role-selector {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.role-btn {
+    flex: 1;
+    padding: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: #555;
+    outline: none;
+}
+
+.role-btn.active {
+    color: #f08804;
+    border-bottom: 2px solid #f08804;
+}
+
+.login-box label {
+    font-size: 13px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 5px;
+    color: #111;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #a6a6a6;
+    border-radius: 3px;
+    outline: none;
+}
+
+.login-box input:focus {
+    border-color: #e77600;
+    box-shadow: 0 0 3px 2px rgba(228,121,17,0.5);
+}
+
+.auth-btn {
+    width: 100%;
+    background: #ffd814;
+    border: 1px solid #fcd200;
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(213,217,217,.5);
+    font-size: 14px;
+}
+
+.auth-btn:hover {
+    background: #f7ca00;
+}
+
+.new-to-aaru {
+    margin-top: 20px;
+}
+
+.new-to-aaru p {
+    font-size: 12px;
+    color: #767676;
+    margin-bottom: 10px;
+}
+
+.create-account-btn {
+    width: 100%;
+    background: #fff;
+    border: 1px solid #d5d9d9;
+    border-radius: 8px;
+    padding: 8px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.create-account-btn:hover {
+    background: #f7fafa;
+}
+
+/* --- NEW MODIFICATIONS FOR SEPARATE LOGINS --- */
+
+/* Positioning for Forgot Password Link */
+.password-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.forgot-link {
+    font-size: 12px;
+    color: #0066c0;
+    text-decoration: none;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+    color: #c45500;
+}
+
+/* Admin Specific Visuals */
+.admin-login-body {
+    background-color: #f3f3f3; 
+}
+
+.admin-box {
+    border-top: 3px solid #232f3e !important; /* Dark blue/black accent for admin */
+}
+
+.admin-btn {
+    background: #232f3e !important;
+    color: white !important;
+    border: 1px solid #131921 !important;
+}
+
+.admin-btn:hover {
+    background: #37475a !important;
+}

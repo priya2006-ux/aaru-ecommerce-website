@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aaru.in | Shop Online</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="nav-left">
+            <div class="logo" id="logo-home">Aaru<span>.in</span></div>
+        </div>
+        <div class="nav-fill">
+            <div class="search-container">
+                <input type="text" placeholder="Search Aaru Items..." id="search-input">
+                <button type="button" id="search-btn">🔍</button>
+            </div>
+        </div>
+        <div class="nav-right">
+            <div class="nav-item" onclick="window.location.href='login.html'">
+                <span class="line-1">Hello, sign in</span>
+                <span class="line-2">Account & Lists</span>
+            </div>
+            <div class="nav-item">
+                <span class="line-1">Returns</span>
+                <span class="line-2">& Orders</span>
+            </div>
+            <div class="nav-item">
+                <span class="line-2">Cart <span id="cart-display" class="cart-count">0</span></span>
+            </div>
+        </div>
+        </header>
+
+    <nav class="sub-nav">
+    <ul>
+        <li class="nav-link">All</li>
+        <li class="nav-link">Electronics</li>
+        <li class="nav-link">Customer Service</li>
+    </ul>
+</nav>
+
+    <main>
+        <div id="home-section">
+            <div class="hero-section">
+                <div class="slider">
+                    <div class="slides">
+                        <img src="https://m.media-amazon.com/images/I/61zAjw4CqxL._SX3000_.jpg" alt="Banner 1">
+                        <img src="https://m.media-amazon.com/images/I/717RUPA1bDL._SX3000_.jpg" alt="Banner 2">
+                        <img src="https://m.media-amazon.com/images/I/71Ie3JXGfVL._SX3000_.jpg" alt="Banner 3">
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <h2 id="grid-title">Today's Deals</h2>
+                <div class="product-grid" id="product-container"></div>
+            </div>
+        </div>
+<div id="service-section" style="display: none;">
+    <div class="cs-container">
+        <h1>Hello. What can we help you with?</h1>
+        <div class="cs-grid">
+            
+            <div class="cs-card">
+                <div class="cs-icon-wrap">
+                    <img src="https://cdn-icons-png.flaticon.com/512/709/709511.png" alt="Orders">
+                </div>
+                <div class="cs-info">
+                    <h3>Your Orders</h3>
+                    <p>Track packages, edit or cancel orders</p>
+                </div>
+            </div>
+
+            <div class="cs-card">
+                <div class="cs-icon-wrap">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1585/1585149.png" alt="Returns">
+                </div>
+                <div class="cs-info">
+                    <h3>Returns & Refunds</h3>
+                    <p>Return or exchange items</p>
+                </div>
+            </div>
+
+            <div class="cs-card">
+                <div class="cs-icon-wrap">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1086/1086741.png" alt="Payments">
+                </div>
+                <div class="cs-info">
+                    <h3>Payment Settings</h3>
+                    <p>Add or edit payment methods</p>
+                </div>
+            </div>
+
+           <div class="cs-card">
+    <div class="cs-icon-wrap">
+        <img src="https://cdn-icons-png.flaticon.com/512/1053/1053151.png" alt="Security">
+    </div>
+    <div class="cs-info">
+        <h3>Login & Security</h3>
+        <p>Edit login, name, and mobile number</p>
+    </div>
+</div>
+
+        </div>
+    </div>
+</div>
+        
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aaru | Product Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo" onclick="window.location.href='/'">aaru<span>.in</span></div>
+        <div class="nav-fill">
+             <div class="search-container">
+                <input type="text" placeholder="Search Aaru Items...">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="product-detail-container" id="detail-content">
+            <p>Loading product details...</p>
+        </div>
+    </main>
+
+    <script>
+        // Client-side script to fetch one product
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
+
+        async function loadDetails() {
+            try {
+                const response = await fetch(`http://localhost:3000/api/products`);
+                const products = await response.json();
+                const product = products.find(p => p._id === productId);
+
+                if (product) {
+                    document.getElementById('detail-content').innerHTML = `
+                        <div class="detail-flex">
+                            <div class="detail-img">
+                                <img src="${product.imageUrl}" alt="${product.name}">
+                            </div>
+                            <div class="detail-info">
+                                <h1>${product.name}</h1>
+                                <p class="category-tag">Category: ${product.category || 'General'}</p>
+                                <hr>
+                                <p class="price">$${product.price}</p>
+                                <p class="description"><strong>About this item:</strong><br>${product.description}</p>
+                                <button class="add-to-cart" style="max-width: 200px;">Add to Cart</button>
+                            </div>
+                        </div>
+                    `;
+                }
+            } catch (err) {
+                console.error("Error loading product:", err);
+            }
+        }
+        loadDetails();
+    </script>
+
+    <style>
+        .product-detail-container { margin-top: 40px; background: white; padding: 40px; border-radius: 8px; }
+        .detail-flex { display: flex; gap: 40px; flex-wrap: wrap; }
+        .detail-img { flex: 1; min-width: 300px; text-align: center; }
+        .detail-img img { max-width: 100%; max-height: 400px; }
+        .detail-info { flex: 2; min-width: 300px; }
+        .category-tag { color: #007185; font-size: 14px; }
+        .description { line-height: 1.6; margin-top: 20px; }
+    </style>
+</body>
+</html>

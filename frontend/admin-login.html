@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Access | Aaru.in</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="logo" style="color: black; margin-bottom: 20px;">Aaru<span>.in</span> <small style="font-size: 12px; color: #767676;">Admin Panel</small></div>
+        
+        <div class="login-box" style="border-top: 3px solid #f08804;">
+            <h1>Admin Sign-In</h1>
+            <form id="admin-form">
+                <label>Admin Email</label>
+                <input type="email" id="admin-email" placeholder="admin@aaru.in" required>
+
+                <label>Security Key</label>
+                <input type="password" id="admin-pass" placeholder="123" required>
+
+                <button type="submit" class="auth-btn" style="background: #232f3e; color: white; border: none;">Login to Dashboard</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('admin-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('admin-email').value;
+            const password = document.getElementById('admin-pass').value;
+
+            try {
+               // Change this line in your admin-login.html script
+const response = await fetch('http://localhost:3000/api/login', { 
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, password, role: 'admin' })
+});
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    // 1. SAVE THE KEY: The dashboard needs this to fetch products
+                    localStorage.setItem('adminKey', 'aaru-admin-access-key');
+                    
+                    alert("Access Granted. Redirecting to Admin Dashboard...");
+                    
+                    // 2. FIX THE REDIRECT: Go to the dashboard file, not index.html
+                    window.location.href = "admin-dashboard.html"; 
+                } else {
+                    alert("Unauthorized Access: " + (data.message || "Invalid Credentials"));
+                }
+            } catch (error) {
+                console.error("Login Error:", error);
+                alert("Connection error. Is your server running?");
+            }
+        });
+    </script>
+</body>
+</html>
